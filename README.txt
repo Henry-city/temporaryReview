@@ -10,3 +10,8 @@
 更新：替换对应静态内容并推送 main，GitHub Pages 将重新发布。
 
 尺寸是程序构造值，不是实物测量；当前几何存在模板化，页面保留了审阅说明。
+
+新增审阅页面（2026-11-10）：
+三椅输入／背面／正面：https://pygargous.com/temporaryReview/chairs-front-back/
+16 款微波炉开门／关门：https://pygargous.com/temporaryReview/microwaves/
+图片从原 HTML 内嵌数据无损拆出；原排版、文字和交互保留。

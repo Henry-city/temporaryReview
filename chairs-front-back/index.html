@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:,"><title>三椅审阅 · Input / 背面 / 正面</title>
+<style>
+:root{--ink:#17293d;--muted:#64748b;--line:#dce3eb;--paper:#f3f5f8;--accent:#22615b}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif}
+button{font:inherit}main{width:min(1440px,100%);margin:auto;padding:40px 32px 30px}
+.eyebrow{font-size:12px;letter-spacing:.16em;font-weight:700;color:var(--accent);margin:0 0 14px}
+h1{font-size:clamp(25px,3.1vw,40px);line-height:1.2;letter-spacing:-.03em;margin:0 0 13px;font-weight:650}
+.intro{display:flex;gap:20px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:28px}
+.intro p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}.hint{border:1px solid var(--line);border-radius:100px;padding:7px 13px;background:white;font-size:12px;color:var(--muted)}
+.matrix{overflow-x:auto;padding:0 0 6px}.matrix-content{min-width:660px}
+.three-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.column-heads{margin-bottom:22px}.column{border-top:2px solid #a4b3c5;padding:13px 4px 4px;font-size:17px;font-weight:650}.column span{display:block;margin-top:5px;font-size:12px;font-weight:400;color:var(--muted)}
+.column.output{border-top-color:#5a948b}.case{margin:0 0 28px}.case-label{display:flex;align-items:center;gap:14px;margin:0 0 10px}.case-label h2{font-size:17px;font-weight:650;margin:0}.case-label>span{font-size:12px;color:var(--muted)}
+.tile{display:block;width:100%;padding:10px 10px 0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;text-align:left;cursor:zoom-in;transition:border-color .15s,box-shadow .15s;color:var(--ink)}
+.tile:hover{border-color:#7b9eaa;box-shadow:0 4px 16px #263c5210}.tile:focus-visible,dialog button:focus-visible{outline:3px solid #379085;outline-offset:3px}
+.picture{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:4/5;background:white;overflow:hidden;border-radius:6px}.picture img{display:block;width:100%;height:100%;object-fit:contain}
+.caption{display:flex;align-items:center;justify-content:space-between;padding:11px 4px 12px;font-size:12px;color:var(--muted)}.zoom{font-size:18px;line-height:1;color:#608078}
+footer{border-top:1px solid var(--line);padding-top:18px;font-size:12px;color:var(--muted);line-height:1.8}footer p{margin:0}
+dialog{border:0;border-radius:16px;width:min(1040px,95vw);max-height:95vh;padding:16px;background:#f7f9fb;color:var(--ink);box-shadow:0 20px 80px #0005}dialog::backdrop{background:#0e1c2dcc;backdrop-filter:blur(4px)}
+.modal-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.modal-bar strong{font-size:15px;font-weight:600}dialog button{border:1px solid var(--line);border-radius:8px;background:white;padding:7px 11px;color:var(--ink);cursor:pointer}.modal-actions{display:flex;gap:8px}.modal-image{display:block;width:100%;height:min(76vh,920px);object-fit:contain;background:white;border-radius:8px}.modal-tip{margin:10px 2px 0;color:var(--muted);font-size:12px}
+@media(max-width:700px){main{padding:25px 16px}.three-columns{gap:10px}.intro{gap:10px}.case-label>span{display:none}.column{font-size:15px}.tile{padding:6px 6px 0}.caption{font-size:11px;padding:8px 2px}dialog{padding:10px}.modal-actions{gap:4px}dialog button{padding:6px 8px}}
+@media print{body{background:white}main{padding:0}.hint,.zoom{display:none}.case{break-inside:avoid}.matrix{overflow:visible}.tile{box-shadow:none}.case-label{padding-top:6px}.column-heads{margin-bottom:14px}footer{font-size:10px}}
+</style>
+</head>
+<body>
+<main>
+  <header><p class="eyebrow">ISART · B · 2500 STEPS</p><h1>三把椅子，三个视图</h1>
+    <div class="intro"><p>左：原始输入图　／　中：处理后背面　／　右：处理后正面</p><span class="hint">点击图片放大</span></div>
+  </header>
+  <div class="matrix"><div class="matrix-content">
+    <div class="three-columns column-heads" aria-hidden="true">
+      <div class="column">Input<span>原始输入图</span></div>
+      <div class="column output">背面<span>处理后模型</span></div>
+      <div class="column output">正面<span>处理后模型</span></div>
+    </div>
+    <section class="case" aria-labelledby="chair_001">
+      <div class="case-label"><h2 id="chair_001">chair_001</h2><span>处理后模型审阅</span></div>
+      <div class="three-columns"><button class="tile" type="button" data-title="chair_001 / Input · 原始输入" aria-label="放大 chair_001 / Input · 原始输入">
+          <span class="picture"><img src="assets/image-001-3f8beb4beb.png" alt="chair_001 / Input · 原始输入" loading="eager" decoding="async"></span>
+          <span class="caption"><span>Input · 原始输入</span><span class="zoom" aria-hidden="true">↗</span></span>
+        </button><button class="tile" type="button" data-title="chair_001 / 背面 · 处理后" aria-label="放大 chair_001 / 背面 · 处理后">
+          <span class="picture"><img src="assets/image-002-9642d55691.png" alt="chair_001 / 背面 · 处理后" loading="eager" decoding="async"></span>
+          <span class="caption"><span>背面 · 处理后</span><span class="zoom" aria-hidden="true">↗</span></span>
+        </button><button class="tile" type="button" data-title="chair_001 / 正面 · 处理后" aria-label="放大 chair_001 / 正面 · 处理后">
+          <span class="picture"><img src="assets/image-003-2121731605.png" alt="chair_001 / 正面 · 处理后" loading="eager" decoding="async"></span>
+          <span class="caption"><span>正面 · 处理后</span><span class="zoom" aria-hidden="true">↗</span></span>
+        </button></div>
+    </section>
+<section class="case" aria-labelledby="chair_002">
+      <div class="case-label"><h2 id="chair_002">chair_002</h2><span>处理后模型审阅</span></div>
+      <div class="three-columns"><button class="tile" type="button" data-title="chair_002 / Input · 原始输入" aria-label="放大 chair_002 / Input · 原始输入">
+          <span class="picture"><img src="assets/image-004-635138f66d.png" alt="chair_002 / Input · 原始输入" loading="eager" decoding="async"></span>
+          <span class="caption"><span>Input · 原始输入</span><span class="zoom" aria-hidden="true">↗</span></span>
+        </button><button class="tile" type="button" data-title="chair_002 / 背面 · 处理后" aria-label="放大 chair_002 / 背面 · 处理后">
+          <span class="picture"><img src="assets/image-005-030d6de5fa.png" alt="chair_002 / 背面 · 处理后" loading="eager" decoding="async"></span>
+          <span class="caption"><span>背面 · 处理后</span><span class="zoom" aria-hidden="true">↗</span></span>
+        </button><button class="tile" type="button" data-title="chair_002 / 正面 · 处理后" aria-label="放大 chair_002 / 正面 · 处理后">
+          <span class="picture"><img src="assets/image-006-1a63ed0005.png" alt="chair_002 / 正面 · 处理后" loading="eager" decoding="async"></span>
+          <span class="caption"><span>正面 · 处理后</span><span class="zoom" aria-hidden="true">↗</span></span>
+        </button></div>
+    </section>
+<section class="case" aria-labelledby="chair_005">
+      <div class="case-label"><h2 id="chair_005">chair_005</h2><span>处理后模型审阅</span></div>
+      <div class="three-columns"><button class="tile" type="button" data-title="chair_005 / Input · 原始输入" aria-label="放大 chair_005 / Input · 原始输入">
+          <span class="picture"><img src="assets/image-007-3efd1c2114.png" alt="chair_005 / Input · 原始输入" loading="eager" decoding="async"></span>
+          <span class="caption"><span>Input · 原始输入</span><span class="zoom" aria-hidden="true">↗</span></span>
+        </button><button class="tile" type="button" data-title="chair_005 / 背面 · 处理后" aria-label="放大 chair_005 / 背面 · 处理后">
+          <span class="picture"><img src="assets/image-008-c4836e4ca3.png" alt="chair_005 / 背面 · 处理后" loading="eager" decoding="async"></span>
+          <span class="caption"><span>背面 · 处理后</span><span class="zoom" aria-hidden="true">↗</span></span>
+        </button><button class="tile" type="button" data-title="chair_005 / 正面 · 处理后" aria-label="放大 chair_005 / 正面 · 处理后">
+          <span class="picture"><img src="assets/image-009-22796ced53.png" alt="chair_005 / 正面 · 处理后" loading="eager" decoding="async"></span>
+          <span class="caption"><span>正面 · 处理后</span><span class="zoom" aria-hidden="true">↗</span></span>
+        </button></div>
+    </section>
+  </div></div>
+  <footer><p>背面、正面均为处理后版本，采用相同尺度的正交视图。输入列保留原始照片。</p><p>处理后模型含补面与表面重建，部分细节经过简化。</p></footer>
+</main>
+<dialog id="viewer" aria-labelledby="viewer-title">
+  <div class="modal-bar"><strong id="viewer-title"></strong><div class="modal-actions"><button id="previous" type="button" aria-label="上一张">←</button><button id="next" type="button" aria-label="下一张">→</button><button id="close" type="button">关闭</button></div></div>
+  <img id="viewer-image" class="modal-image" alt="">
+  <p class="modal-tip">方向键切换图片 · Esc 关闭</p>
+</dialog>
+<script>
+(() => {
+  const tiles=Array.from(document.querySelectorAll('.tile'));
+  const dialog=document.getElementById('viewer'), picture=document.getElementById('viewer-image'), title=document.getElementById('viewer-title');
+  let current=0;
+  function display(index){current=(index+tiles.length)%tiles.length;const tile=tiles[current];picture.src=tile.querySelector('img').src;picture.alt=tile.dataset.title;title.textContent=tile.dataset.title;}
+  tiles.forEach((tile,index)=>tile.addEventListener('click',()=>{display(index);dialog.showModal();}));
+  document.getElementById('previous').addEventListener('click',()=>display(current-1));
+  document.getElementById('next').addEventListener('click',()=>display(current+1));
+  document.getElementById('close').addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
+  document.addEventListener('keydown',event=>{if(!dialog.open)return;if(event.key==='ArrowLeft'){event.preventDefault();display(current-1);}if(event.key==='ArrowRight'){event.preventDefault();display(current+1);}});
+})();
+</script>
+</body></html>
