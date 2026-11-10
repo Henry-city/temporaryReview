@@ -1,0 +1,3436 @@
+椅子与闸机：逐类、逐 case 参数值
+2026-11-10；14 小类；72 个 case；57 椅子 + 15 闸机。
+配置为 catalog.py 显式值加 build_assets.py 的默认值。固定特征与源代码尺寸另列；没有 Blender 参数滑块界面。
+true=开启；false=关闭。尺寸不是实测包围盒。连续关节没有有限的 ±180° 限位。
+Input/output 及逐类图见同目录 index.html。
+
+================================================================================
+办公／人体工学外形 | office | 9 个
+9 个 case 共用五爪脚轮、气杆和基础座背生成器。通过高宽档位、软包、扶手和材质分支区别；与 racing 共用 build_office。
+局限：厚软包、背部曲率和扶手连杆没有逐款复原。
+
+c046_grey_executive
+参考编号：[46]
+配置参数：
+  kind = office  [显式设置] 模板类型
+  accent = grey  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = true  [显式设置] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = true  [显式设置] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = true  [显式设置] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = true  [显式设置] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = 弯管
+  扶手机构 = 转动
+  头枕 = true
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  arm_left_joint | revolute | body -> arm_left | axis=[1, 0, 0] | origin(m)=[-0.305, 0.18, 0.14] | limits(SI)=[-1.2, 0] | [-68.755, 0]°
+  arm_right_joint | revolute | body -> arm_right | axis=[1, 0, 0] | origin(m)=[0.305, 0.18, 0.14] | limits(SI)=[-1.2, 0] | [-68.755, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c048_green_armless
+参考编号：[48]
+配置参数：
+  kind = office  [显式设置] 模板类型
+  accent = olive  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = true  [显式设置] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = true  [显式设置] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = false  [显式设置] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 370
+  背顶后移参数 (back_lean_offset_mm) = 95
+生效／固定特征：
+  底座配色 = white
+  扶手形状 = 无
+  扶手机构 = 无
+  头枕 = false
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c048_green_wrap
+参考编号：[48]
+配置参数：
+  kind = office  [显式设置] 模板类型
+  accent = forest  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = true  [显式设置] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = true  [显式设置] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = true  [显式设置] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 370
+  背顶后移参数 (back_lean_offset_mm) = 95
+生效／固定特征：
+  底座配色 = white
+  扶手形状 = 块状包围
+  扶手机构 = 并入 body 固定
+  头枕 = false
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c049_navy_fabric
+参考编号：[49]
+配置参数：
+  kind = office  [显式设置] 模板类型
+  accent = navy  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = true  [显式设置] 布料凹凸材质
+  short = true  [显式设置] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 370
+  背顶后移参数 (back_lean_offset_mm) = 95
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = T 形
+  扶手机构 = 并入 body 固定
+  头枕 = false
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c052_yellow_fabric
+参考编号：[52, 58]
+配置参数：
+  kind = office  [显式设置] 模板类型
+  accent = sand  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = true  [显式设置] 布料凹凸材质
+  short = true  [显式设置] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 370
+  背顶后移参数 (back_lean_offset_mm) = 95
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = T 形
+  扶手机构 = 并入 body 固定
+  头枕 = false
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c063_crossleg_cream
+参考编号：[63]
+配置参数：
+  kind = office  [显式设置] 模板类型
+  accent = cream  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = true  [显式设置] 布料凹凸材质
+  short = true  [显式设置] 矮靠背档
+  wide = true  [显式设置] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = true  [显式设置] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 640
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 608
+  背壳高度参数 (back_height_parameter_mm) = 370
+  背顶后移参数 (back_lean_offset_mm) = 95
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = 块状包围
+  扶手机构 = 并入 body 固定
+  头枕 = false
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c077_blush_highback
+参考编号：[77]
+配置参数：
+  kind = office  [显式设置] 模板类型
+  accent = blush  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = true  [显式设置] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = true  [显式设置] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 680
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c105_grey_reclining_office
+参考编号：[105]
+配置参数：
+  kind = office  [显式设置] 模板类型
+  accent = grey  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = false
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+
+c157_grey_plush_recliner
+参考编号：[157]
+配置参数：
+  kind = office  [显式设置] 模板类型
+  accent = grey  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = true  [显式设置] 银色五爪底座
+  fabric = true  [显式设置] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = true  [显式设置] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = silver
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+================================================================================
+电竞／赛车外形 | racing | 27 个
+27 个 case 在同一座背基础上增加通用侧垫、枕头、孔与表面纹样。侧翼、枕头与腰靠曲线没有逐款独立参数。
+局限：27 款仍共享主体轮廓；改纹样不等于改椅形。
+
+c112_grey_graphic_racing
+参考编号：[112]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = grey  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = true  [显式设置] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = true  [显式设置] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = silver
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+
+c120_red_racing
+参考编号：[120, 121]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = red  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+
+c122_black_racing
+参考编号：[122, 125, 131]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = black  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 2  [显式设置] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+
+c123_white_racing
+参考编号：[123]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = white  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = true  [显式设置] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = silver
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+
+c124_red_reclining_racing
+参考编号：[124, 135, 137, 138, 139, 140, 154, 160]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = red  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 2  [显式设置] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+
+c128_cyan_racing
+参考编号：[128]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = cyan  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 1  [显式设置] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+
+c129_black_wide_racing
+参考编号：[129]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = black  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = true  [显式设置] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = true  [显式设置] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 1  [显式设置] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 640
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 608
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = silver
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+
+c130_black_reclining_racing
+参考编号：[130]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = black  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = true  [显式设置] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 2  [显式设置] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = silver
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+
+c132_white_graphic_racing
+参考编号：[132]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = white  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = true  [显式设置] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = true  [显式设置] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = silver
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+
+c133_rgb_white_racing
+参考编号：[133]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = white  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 2  [显式设置] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = true  [显式设置] 通用图案
+  rgb = true  [显式设置] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+
+c136_grey_racing
+参考编号：[136]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = grey  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = true  [显式设置] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = T 形
+  扶手机构 = 升降
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  arm_left_joint | prismatic | body -> arm_left | axis=[0, 0, 1] | origin(m)=[-0.305, 0.18, 0.14] | limits(SI)=[0, 0.07] | [0, 70] mm
+  arm_right_joint | prismatic | body -> arm_right | axis=[0, 0, 1] | origin(m)=[0.305, 0.18, 0.14] | limits(SI)=[0, 0.07] | [0, 70] mm
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+
+c141_white_wide_racing
+参考编号：[141, 142]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = white  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = true  [显式设置] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = true  [显式设置] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 640
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 608
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = silver
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c143_blue_racing
+参考编号：[143]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = blue  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = true  [显式设置] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 1  [显式设置] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = silver
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = false
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c144_grey_chevron_racing
+参考编号：[144]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = grey  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = true  [显式设置] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = true  [显式设置] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = silver
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = false
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c145_red_chevron_racing
+参考编号：[145]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = red  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = true  [显式设置] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = true  [显式设置] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = silver
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = false
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c146_green_racing
+参考编号：[146]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = forest  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = true  [显式设置] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = T 形
+  扶手机构 = 升降
+  头枕 = false
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  arm_left_joint | prismatic | body -> arm_left | axis=[0, 0, 1] | origin(m)=[-0.305, 0.18, 0.14] | limits(SI)=[0, 0.07] | [0, 70] mm
+  arm_right_joint | prismatic | body -> arm_right | axis=[0, 0, 1] | origin(m)=[0.305, 0.18, 0.14] | limits(SI)=[0, 0.07] | [0, 70] mm
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c147_black_red_racing
+参考编号：[147]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = red  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+
+c148_black_curved_racing
+参考编号：[148]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = black  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = true  [显式设置] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = true  [显式设置] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 1  [显式设置] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = silver
+  扶手形状 = 弯管
+  扶手机构 = 转动
+  头枕 = false
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  arm_left_joint | revolute | body -> arm_left | axis=[1, 0, 0] | origin(m)=[-0.305, 0.18, 0.14] | limits(SI)=[-1.2, 0] | [-68.755, 0]°
+  arm_right_joint | revolute | body -> arm_right | axis=[1, 0, 0] | origin(m)=[0.305, 0.18, 0.14] | limits(SI)=[-1.2, 0] | [-68.755, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c149_orange_quilted_racing
+参考编号：[149]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = orange  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = true  [显式设置] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = true  [显式设置] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = T 形
+  扶手机构 = 升降
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  arm_left_joint | prismatic | body -> arm_left | axis=[0, 0, 1] | origin(m)=[-0.305, 0.18, 0.14] | limits(SI)=[0, 0.07] | [0, 70] mm
+  arm_right_joint | prismatic | body -> arm_right | axis=[0, 0, 1] | origin(m)=[0.305, 0.18, 0.14] | limits(SI)=[0, 0.07] | [0, 70] mm
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c150_white_racing
+参考编号：[150]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = white  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = true  [显式设置] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = silver
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c150_red_racing
+参考编号：[150]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = red  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = true  [显式设置] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = silver
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c151_black_angular_racing
+参考编号：[151, 153]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = charcoal  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = true  [显式设置] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = true  [显式设置] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = T 形
+  扶手机构 = 升降
+  头枕 = false
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  arm_left_joint | prismatic | body -> arm_left | axis=[0, 0, 1] | origin(m)=[-0.305, 0.18, 0.14] | limits(SI)=[0, 0.07] | [0, 70] mm
+  arm_right_joint | prismatic | body -> arm_right | axis=[0, 0, 1] | origin(m)=[0.305, 0.18, 0.14] | limits(SI)=[0, 0.07] | [0, 70] mm
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c152_black_quilted_racing
+参考编号：[152]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = black  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = true  [显式设置] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = true  [显式设置] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = T 形
+  扶手机构 = 升降
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  arm_left_joint | prismatic | body -> arm_left | axis=[0, 0, 1] | origin(m)=[-0.305, 0.18, 0.14] | limits(SI)=[0, 0.07] | [0, 70] mm
+  arm_right_joint | prismatic | body -> arm_right | axis=[0, 0, 1] | origin(m)=[0.305, 0.18, 0.14] | limits(SI)=[0, 0.07] | [0, 70] mm
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+
+c155_black_chevron_racing
+参考编号：[155]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = black  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = true  [显式设置] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 2  [显式设置] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = true  [显式设置] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = 弯管
+  扶手机构 = 转动
+  头枕 = false
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  arm_left_joint | revolute | body -> arm_left | axis=[1, 0, 0] | origin(m)=[-0.305, 0.18, 0.14] | limits(SI)=[-1.2, 0] | [-68.755, 0]°
+  arm_right_joint | revolute | body -> arm_right | axis=[1, 0, 0] | origin(m)=[0.305, 0.18, 0.14] | limits(SI)=[-1.2, 0] | [-68.755, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c156_taupe_racing
+参考编号：[156]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = taupe  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = true  [显式设置] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = T 形
+  扶手机构 = 升降
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  arm_left_joint | prismatic | body -> arm_left | axis=[0, 0, 1] | origin(m)=[-0.305, 0.18, 0.14] | limits(SI)=[0, 0.07] | [0, 70] mm
+  arm_right_joint | prismatic | body -> arm_right | axis=[0, 0, 1] | origin(m)=[0.305, 0.18, 0.14] | limits(SI)=[0, 0.07] | [0, 70] mm
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c158_olive_angular_racing
+参考编号：[158, 159]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = olive  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = false  [默认值] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = true  [显式设置] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = true  [显式设置] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = T 形
+  扶手机构 = 升降
+  头枕 = false
+  独立腰枕块 = false
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  arm_left_joint | prismatic | body -> arm_left | axis=[0, 0, 1] | origin(m)=[-0.305, 0.18, 0.14] | limits(SI)=[0, 0.07] | [0, 70] mm
+  arm_right_joint | prismatic | body -> arm_right | axis=[0, 0, 1] | origin(m)=[0.305, 0.18, 0.14] | limits(SI)=[0, 0.07] | [0, 70] mm
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+
+c161_red_piped_racing
+参考编号：[161]
+配置参数：
+  kind = racing  [显式设置] 模板类型
+  accent = red  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  chrome = false  [默认值] 银色五爪底座
+  fabric = false  [默认值] 布料凹凸材质
+  short = false  [默认值] 矮靠背档
+  wide = false  [默认值] 宽座档
+  foot = true  [显式设置] 伸缩脚托
+  wood = false  [默认值] 背后木色板
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 1  [显式设置] 靠背圆孔数量
+  pillow = true  [显式设置] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 520
+  主座体深 (seat_depth_mm) = 490
+  主座体厚 (seat_thickness_mm) = 110
+  主座体中心 Z (seat_center_z_mm) = 490
+  背壳宽度参数 (back_width_parameter_mm) = 494
+  背壳高度参数 (back_height_parameter_mm) = 760
+  背顶后移参数 (back_lean_offset_mm) = 140
+生效／固定特征：
+  底座配色 = black
+  扶手形状 = 弯管
+  扶手机构 = 并入 body 固定
+  头枕 = true
+  独立腰枕块 = true
+当前导出关节：
+  caster_1_joint | continuous | base -> caster_1 | axis=[0, 0, 1] | origin(m)=[0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | base -> caster_2 | axis=[0, 0, 1] | origin(m)=[1.9594e-17, 0.32, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_3_joint | continuous | base -> caster_3 | axis=[0, 0, 1] | origin(m)=[-0.30434, 0.098885, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_3_joint | continuous | caster_3 -> wheel_3 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_4_joint | continuous | base -> caster_4 | axis=[0, 0, 1] | origin(m)=[-0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_4_joint | continuous | caster_4 -> wheel_4 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_5_joint | continuous | base -> caster_5 | axis=[0, 0, 1] | origin(m)=[0.18809, -0.25889, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_5_joint | continuous | caster_5 -> wheel_5 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  lift_joint | prismatic | base -> lift | axis=[0, 0, 1] | origin(m)=[0, 0, 0.26] | limits(SI)=[0, 0.09] | [0, 90] mm
+  body_joint | continuous | lift -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.17] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  height_lever_joint | revolute | body -> height_lever | axis=[0, 1, 0] | origin(m)=[0.1, 0, 0.02] | limits(SI)=[-0.24, 0] | [-13.751, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.115] | limits(SI)=[-0.55, 0] | [-31.513, 0]°
+  footrest_joint | prismatic | body -> footrest | axis=[0, -1, 0] | origin(m)=[0, -0.14, -0.015] | limits(SI)=[0, 0.36] | [0, 360] mm
+================================================================================
+带轮折叠会议椅 | conference | 2 个
+2 个 case 共用带轮折叠框架、座板和靠背。white、plain 主要改变配色；翻转扶手由函数强制添加。
+审阅：c000 与 c006 几何完全相同，原图结构却不同。
+
+c000_padded_conference
+参考编号：[0, 1, 20, 64, 71, 73, 84]
+配置参数：
+  kind = conference  [显式设置] 模板类型
+  accent = charcoal  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = false  [默认值] 白色框架分支
+  plain = false  [默认值] 白色靠背分支
+  fabric = false  [默认值] 布料凹凸材质
+  wrap = false  [默认值] 块状包围扶手
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 470
+  主座体深 (seat_depth_mm) = 470
+  主座体厚 (seat_thickness_mm) = 75
+  主座体中心 Z (seat_center_z_mm) = 480
+  背壳宽度参数 (back_width_parameter_mm) = 450
+  背壳高度参数 (back_height_parameter_mm) = 420
+生效／固定特征：
+  扶手存在 = true（函数固定）
+  flip = true（函数覆盖）
+  框架色 = silver
+  背部主色 = charcoal
+  外部抬升 = 动画中根物体上移 90 mm；不是 URDF 升降关节
+当前导出关节：
+  rear_frame_joint | revolute | body -> rear_frame | axis=[1, 0, 0] | origin(m)=[0, 0.14, 0.6] | limits(SI)=[-0.5, 0] | [-28.648, 0]°
+  seat_joint | revolute | body -> seat | axis=[1, 0, 0] | origin(m)=[0, 0.18, 0.48] | limits(SI)=[-1.28, 0] | [-73.339, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.18, 0.55] | limits(SI)=[-0.1, 0.25] | [-5.7296, 14.324]°
+  arm_left_joint | revolute | body -> arm_left | axis=[1, 0, 0] | origin(m)=[-0.34, 0.18, 0.56] | limits(SI)=[-1.2, 0] | [-68.755, 0]°
+  arm_right_joint | revolute | body -> arm_right | axis=[1, 0, 0] | origin(m)=[0.34, 0.18, 0.56] | limits(SI)=[-1.2, 0] | [-68.755, 0]°
+  caster_1_joint | continuous | body -> caster_1 | axis=[0, 0, 1] | origin(m)=[-0.27, -0.27, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | body -> caster_2 | axis=[0, 0, 1] | origin(m)=[0.27, -0.27, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  rear_caster_1_joint | continuous | rear_frame -> rear_caster_1 | axis=[0, 0, 1] | origin(m)=[-0.29, 0.2, -0.5] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  rear_wheel_1_joint | continuous | rear_caster_1 -> rear_wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  rear_caster_2_joint | continuous | rear_frame -> rear_caster_2 | axis=[0, 0, 1] | origin(m)=[0.29, 0.2, -0.5] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  rear_wheel_2_joint | continuous | rear_caster_2 -> rear_wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+
+c006_white_orange_conference
+参考编号：[6]
+配置参数：
+  kind = conference  [显式设置] 模板类型
+  accent = orange  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  white = true  [显式设置] 白色框架分支
+  plain = true  [显式设置] 白色靠背分支
+  fabric = false  [默认值] 布料凹凸材质
+  wrap = false  [默认值] 块状包围扶手
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 470
+  主座体深 (seat_depth_mm) = 470
+  主座体厚 (seat_thickness_mm) = 75
+  主座体中心 Z (seat_center_z_mm) = 480
+  背壳宽度参数 (back_width_parameter_mm) = 450
+  背壳高度参数 (back_height_parameter_mm) = 420
+生效／固定特征：
+  扶手存在 = true（函数固定）
+  flip = true（函数覆盖）
+  框架色 = white
+  背部主色 = white
+  外部抬升 = 动画中根物体上移 90 mm；不是 URDF 升降关节
+当前导出关节：
+  rear_frame_joint | revolute | body -> rear_frame | axis=[1, 0, 0] | origin(m)=[0, 0.14, 0.6] | limits(SI)=[-0.5, 0] | [-28.648, 0]°
+  seat_joint | revolute | body -> seat | axis=[1, 0, 0] | origin(m)=[0, 0.18, 0.48] | limits(SI)=[-1.28, 0] | [-73.339, 0]°
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.18, 0.55] | limits(SI)=[-0.1, 0.25] | [-5.7296, 14.324]°
+  arm_left_joint | revolute | body -> arm_left | axis=[1, 0, 0] | origin(m)=[-0.34, 0.18, 0.56] | limits(SI)=[-1.2, 0] | [-68.755, 0]°
+  arm_right_joint | revolute | body -> arm_right | axis=[1, 0, 0] | origin(m)=[0.34, 0.18, 0.56] | limits(SI)=[-1.2, 0] | [-68.755, 0]°
+  caster_1_joint | continuous | body -> caster_1 | axis=[0, 0, 1] | origin(m)=[-0.27, -0.27, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_1_joint | continuous | caster_1 -> wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  caster_2_joint | continuous | body -> caster_2 | axis=[0, 0, 1] | origin(m)=[0.27, -0.27, 0.1] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  wheel_2_joint | continuous | caster_2 -> wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  rear_caster_1_joint | continuous | rear_frame -> rear_caster_1 | axis=[0, 0, 1] | origin(m)=[-0.29, 0.2, -0.5] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  rear_wheel_1_joint | continuous | rear_caster_1 -> rear_wheel_1 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  rear_caster_2_joint | continuous | rear_frame -> rear_caster_2 | axis=[0, 0, 1] | origin(m)=[0.29, 0.2, -0.5] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  rear_wheel_2_joint | continuous | rear_caster_2 -> rear_wheel_2 | axis=[1, 0, 0] | origin(m)=[0, -0.016, -0.047] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+================================================================================
+四脚折叠椅 | folding | 3 个
+3 个 case 共用同一弯管和座板几何，主要差异是 accent 与 white。坐垫、靠背板和后腿尺寸固定。
+局限：3 款共用同一几何，仅以颜色区分。
+
+c012_orange_folding
+参考编号：[12]
+配置参数：
+  kind = folding  [显式设置] 模板类型
+  accent = orange  [显式设置] 主色／装饰色
+  white = false  [默认值] 白色框架分支
+  fabric = false  [默认值] 布料凹凸材质
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 440
+  主座体深 (seat_depth_mm) = 420
+  主座体厚 (seat_thickness_mm) = 65
+  主座体中心 Z (seat_center_z_mm) = 460
+  背壳宽度参数 (back_width_parameter_mm) = 410
+  背壳高度参数 (back_height_parameter_mm) = 230
+  框架管半径 (frame_tube_radius_mm) = 14
+生效／固定特征：
+  框架色 = black
+  靠背板色 = black
+  外部抬升 = 动画中根物体上移 90 mm；不是 URDF 升降关节
+当前导出关节：
+  seat_joint | revolute | body -> seat | axis=[1, 0, 0] | origin(m)=[0, 0.09, 0.455] | limits(SI)=[-1.38, 0] | [-79.068, 0]°
+  rear_legs_joint | revolute | body -> rear_legs | axis=[1, 0, 0] | origin(m)=[0, 0.075, 0.49] | limits(SI)=[-0.64, 0] | [-36.669, 0]°
+
+c013_black_folding
+参考编号：[13, 18, 21]
+配置参数：
+  kind = folding  [显式设置] 模板类型
+  accent = black  [显式设置] 主色／装饰色
+  white = false  [默认值] 白色框架分支
+  fabric = false  [默认值] 布料凹凸材质
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 440
+  主座体深 (seat_depth_mm) = 420
+  主座体厚 (seat_thickness_mm) = 65
+  主座体中心 Z (seat_center_z_mm) = 460
+  背壳宽度参数 (back_width_parameter_mm) = 410
+  背壳高度参数 (back_height_parameter_mm) = 230
+  框架管半径 (frame_tube_radius_mm) = 14
+生效／固定特征：
+  框架色 = black
+  靠背板色 = black
+  外部抬升 = 动画中根物体上移 90 mm；不是 URDF 升降关节
+当前导出关节：
+  seat_joint | revolute | body -> seat | axis=[1, 0, 0] | origin(m)=[0, 0.09, 0.455] | limits(SI)=[-1.38, 0] | [-79.068, 0]°
+  rear_legs_joint | revolute | body -> rear_legs | axis=[1, 0, 0] | origin(m)=[0, 0.075, 0.49] | limits(SI)=[-0.64, 0] | [-36.669, 0]°
+
+c017_ivory_folding
+参考编号：[15, 16, 17]
+配置参数：
+  kind = folding  [显式设置] 模板类型
+  accent = cream  [显式设置] 主色／装饰色
+  white = true  [显式设置] 白色框架分支
+  fabric = false  [默认值] 布料凹凸材质
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 440
+  主座体深 (seat_depth_mm) = 420
+  主座体厚 (seat_thickness_mm) = 65
+  主座体中心 Z (seat_center_z_mm) = 460
+  背壳宽度参数 (back_width_parameter_mm) = 410
+  背壳高度参数 (back_height_parameter_mm) = 230
+  框架管半径 (frame_tube_radius_mm) = 14
+生效／固定特征：
+  框架色 = white
+  靠背板色 = cream
+  外部抬升 = 动画中根物体上移 90 mm；不是 URDF 升降关节
+当前导出关节：
+  seat_joint | revolute | body -> seat | axis=[1, 0, 0] | origin(m)=[0, 0.09, 0.455] | limits(SI)=[-1.38, 0] | [-79.068, 0]°
+  rear_legs_joint | revolute | body -> rear_legs | axis=[1, 0, 0] | origin(m)=[0, 0.075, 0.49] | limits(SI)=[-0.64, 0] | [-36.669, 0]°
+================================================================================
+地板椅／旋转地椅 | floor | 7 个
+7 个 case 共用低位座体及靠背。base 决定圆盘底座及旋转关节，arms 决定扶手，tuft 与 chevron 决定局部装饰。
+局限：座宽 560 mm、背高 630 mm 未按各图分别标定。
+
+c023_black_floor_cushion
+参考编号：[23]
+配置参数：
+  kind = floor  [显式设置] 模板类型
+  accent = black  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  fabric = false  [默认值] 布料凹凸材质
+  base = false  [默认值] 旋转圆盘底座
+  arms = false  [显式设置] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = true  [显式设置] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 560
+  主座体深 (seat_depth_mm) = 540
+  主座体厚 (seat_thickness_mm) = 160
+  主座体中心 Z (seat_center_z_mm) = 120
+  背壳宽度参数 (back_width_parameter_mm) = 560
+  背壳高度参数 (back_height_parameter_mm) = 630
+  背顶后移参数 (back_lean_offset_mm) = 110
+生效／固定特征：
+  底座 = 固定根 link，无圆盘
+  座体主色 = black
+当前导出关节：
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.215, 0.19] | limits(SI)=[-0.4, 1.3] | [-22.918, 74.485]°
+
+c042_red_swivel_floor
+参考编号：[22, 42, 110]
+配置参数：
+  kind = floor  [显式设置] 模板类型
+  accent = red  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  fabric = false  [默认值] 布料凹凸材质
+  base = true  [显式设置] 旋转圆盘底座
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 560
+  主座体深 (seat_depth_mm) = 540
+  主座体厚 (seat_thickness_mm) = 160
+  主座体中心 Z (seat_center_z_mm) = 180
+  背壳宽度参数 (back_width_parameter_mm) = 560
+  背壳高度参数 (back_height_parameter_mm) = 630
+  背顶后移参数 (back_lean_offset_mm) = 110
+生效／固定特征：
+  底座 = 旋转圆盘
+  座体主色 = black
+当前导出关节：
+  body_joint | continuous | base -> body | axis=[0, 0, 1] | origin(m)=[0, 0.02, 0.085] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.195, 0.165] | limits(SI)=[-0.4, 1.3] | [-22.918, 74.485]°
+
+c095_taupe_swivel_floor
+参考编号：[95]
+配置参数：
+  kind = floor  [显式设置] 模板类型
+  accent = taupe  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  fabric = false  [默认值] 布料凹凸材质
+  base = true  [显式设置] 旋转圆盘底座
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 560
+  主座体深 (seat_depth_mm) = 540
+  主座体厚 (seat_thickness_mm) = 160
+  主座体中心 Z (seat_center_z_mm) = 180
+  背壳宽度参数 (back_width_parameter_mm) = 560
+  背壳高度参数 (back_height_parameter_mm) = 630
+  背顶后移参数 (back_lean_offset_mm) = 110
+生效／固定特征：
+  底座 = 旋转圆盘
+  座体主色 = black
+当前导出关节：
+  body_joint | continuous | base -> body | axis=[0, 0, 1] | origin(m)=[0, 0.02, 0.085] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.195, 0.165] | limits(SI)=[-0.4, 1.3] | [-22.918, 74.485]°
+
+c097_grey_swivel_floor
+参考编号：[97, 108]
+配置参数：
+  kind = floor  [显式设置] 模板类型
+  accent = grey  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  fabric = false  [默认值] 布料凹凸材质
+  base = true  [显式设置] 旋转圆盘底座
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 560
+  主座体深 (seat_depth_mm) = 540
+  主座体厚 (seat_thickness_mm) = 160
+  主座体中心 Z (seat_center_z_mm) = 180
+  背壳宽度参数 (back_width_parameter_mm) = 560
+  背壳高度参数 (back_height_parameter_mm) = 630
+  背顶后移参数 (back_lean_offset_mm) = 110
+生效／固定特征：
+  底座 = 旋转圆盘
+  座体主色 = black
+当前导出关节：
+  body_joint | continuous | base -> body | axis=[0, 0, 1] | origin(m)=[0, 0.02, 0.085] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.195, 0.165] | limits(SI)=[-0.4, 1.3] | [-22.918, 74.485]°
+
+c102_blue_swivel_floor
+参考编号：[45, 96, 98, 99, 101, 102]
+配置参数：
+  kind = floor  [显式设置] 模板类型
+  accent = blue  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  fabric = false  [默认值] 布料凹凸材质
+  base = true  [显式设置] 旋转圆盘底座
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = true  [显式设置] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 560
+  主座体深 (seat_depth_mm) = 540
+  主座体厚 (seat_thickness_mm) = 160
+  主座体中心 Z (seat_center_z_mm) = 180
+  背壳宽度参数 (back_width_parameter_mm) = 560
+  背壳高度参数 (back_height_parameter_mm) = 630
+  背顶后移参数 (back_lean_offset_mm) = 110
+生效／固定特征：
+  底座 = 旋转圆盘
+  座体主色 = black
+当前导出关节：
+  body_joint | continuous | base -> body | axis=[0, 0, 1] | origin(m)=[0, 0.02, 0.085] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.195, 0.165] | limits(SI)=[-0.4, 1.3] | [-22.918, 74.485]°
+
+c107_black_floor_gaming
+参考编号：[107]
+配置参数：
+  kind = floor  [显式设置] 模板类型
+  accent = black  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  fabric = false  [默认值] 布料凹凸材质
+  base = true  [显式设置] 旋转圆盘底座
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 560
+  主座体深 (seat_depth_mm) = 540
+  主座体厚 (seat_thickness_mm) = 160
+  主座体中心 Z (seat_center_z_mm) = 180
+  背壳宽度参数 (back_width_parameter_mm) = 560
+  背壳高度参数 (back_height_parameter_mm) = 630
+  背顶后移参数 (back_lean_offset_mm) = 110
+生效／固定特征：
+  底座 = 旋转圆盘
+  座体主色 = black
+当前导出关节：
+  body_joint | continuous | base -> body | axis=[0, 0, 1] | origin(m)=[0, 0.02, 0.085] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.195, 0.165] | limits(SI)=[-0.4, 1.3] | [-22.918, 74.485]°
+
+c109_cream_navy_swivel
+参考编号：[109]
+配置参数：
+  kind = floor  [显式设置] 模板类型
+  accent = cream  [显式设置] 主色／装饰色
+  shell = navy  [显式设置] 外壳／扶手色
+  fabric = false  [默认值] 布料凹凸材质
+  base = true  [显式设置] 旋转圆盘底座
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 560
+  主座体深 (seat_depth_mm) = 540
+  主座体厚 (seat_thickness_mm) = 160
+  主座体中心 Z (seat_center_z_mm) = 180
+  背壳宽度参数 (back_width_parameter_mm) = 560
+  背壳高度参数 (back_height_parameter_mm) = 630
+  背顶后移参数 (back_lean_offset_mm) = 110
+生效／固定特征：
+  底座 = 旋转圆盘
+  座体主色 = navy
+当前导出关节：
+  body_joint | continuous | base -> body | axis=[0, 0, 1] | origin(m)=[0, 0.02, 0.085] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.195, 0.165] | limits(SI)=[-0.4, 1.3] | [-22.918, 74.485]°
+================================================================================
+低位摇椅／音响椅 | rocker | 3 个
+3 个 case 共用低位音响座体、外侧弯管和可转靠背。arms、silver 与配色形成差异；ribs 没有被生成器读取。
+审阅：通用块状座体、外侧弯管与原图连续曲面不符。
+
+c043_red_piped_rocker
+参考编号：[31, 43]
+配置参数：
+  kind = rocker  [显式设置] 模板类型
+  accent = red  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  fabric = false  [默认值] 布料凹凸材质
+  ribs = false  [默认值; 未生效] 肋纹标志（当前未生效）
+  arms = false  [显式设置] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 550
+  主座体深 (seat_depth_mm) = 620
+  主座体厚 (seat_thickness_mm) = 240
+  主座体中心 Z (seat_center_z_mm) = 180
+  背壳宽度参数 (back_width_parameter_mm) = 530
+  背壳高度参数 (back_height_parameter_mm) = 640
+  背顶后移参数 (back_lean_offset_mm) = 170
+生效／固定特征：
+  头枕 = true（由 rocker 类型固定添加）
+  座体色 = black（代码固定）
+  靠背主色 = black
+  侧管色 = red
+  ribs = 未读取；true/false 均不改变生成结果
+当前导出关节：
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.24] | limits(SI)=[0, 1.22] | [0, 69.901]°
+
+c113_silver_audio_rocker
+参考编号：[113]
+配置参数：
+  kind = rocker  [显式设置] 模板类型
+  accent = black  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  fabric = false  [默认值] 布料凹凸材质
+  ribs = false  [默认值; 未生效] 肋纹标志（当前未生效）
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = true  [显式设置] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 550
+  主座体深 (seat_depth_mm) = 620
+  主座体厚 (seat_thickness_mm) = 240
+  主座体中心 Z (seat_center_z_mm) = 180
+  背壳宽度参数 (back_width_parameter_mm) = 530
+  背壳高度参数 (back_height_parameter_mm) = 640
+  背顶后移参数 (back_lean_offset_mm) = 170
+生效／固定特征：
+  头枕 = true（由 rocker 类型固定添加）
+  座体色 = black（代码固定）
+  靠背主色 = black
+  侧管色 = silver
+  ribs = 未读取；true/false 均不改变生成结果
+当前导出关节：
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.24] | limits(SI)=[0, 1.22] | [0, 69.901]°
+
+c117_black_audio_rocker
+参考编号：[117]
+配置参数：
+  kind = rocker  [显式设置] 模板类型
+  accent = charcoal  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  fabric = false  [默认值] 布料凹凸材质
+  ribs = true  [显式设置; 未生效] 肋纹标志（当前未生效）
+  arms = true  [默认值] 扶手
+  wrap = false  [默认值] 块状包围扶手
+  flip = false  [默认值] 翻转扶手关节
+  tarm = false  [默认值] T 扶手及升降关节
+  silver = false  [默认值] 银色扶手／侧管
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 550
+  主座体深 (seat_depth_mm) = 620
+  主座体厚 (seat_thickness_mm) = 240
+  主座体中心 Z (seat_center_z_mm) = 180
+  背壳宽度参数 (back_width_parameter_mm) = 530
+  背壳高度参数 (back_height_parameter_mm) = 640
+  背顶后移参数 (back_lean_offset_mm) = 170
+生效／固定特征：
+  头枕 = true（由 rocker 类型固定添加）
+  座体色 = black（代码固定）
+  靠背主色 = charcoal
+  侧管色 = charcoal
+  ribs = 未读取；true/false 均不改变生成结果
+当前导出关节：
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.2, 0.24] | limits(SI)=[0, 1.22] | [0, 69.901]°
+================================================================================
+圆盘底座躺椅 | recliner | 4 个
+4 个 case 共用圆盘底座、两侧箱体、杯架和腿托。已用配置只有 accent 不同，头枕与腰枕强制添加。
+局限：4 款相同几何；软包分区、侧袋与腿托差异丢失。
+
+c104_taupe_pedestal_recliner
+参考编号：[104]
+配置参数：
+  kind = recliner  [显式设置] 模板类型
+  accent = taupe  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  fabric = false  [默认值] 布料凹凸材质
+  holes = 0  [默认值] 靠背圆孔数量
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 570
+  主座体深 (seat_depth_mm) = 550
+  主座体厚 (seat_thickness_mm) = 240
+  主座体中心 Z (seat_center_z_mm) = 470
+  背壳宽度参数 (back_width_parameter_mm) = 570
+  背壳高度参数 (back_height_parameter_mm) = 770
+  底座半径 (base_radius_mm) = 300
+生效／固定特征：
+  pillow = true（函数覆盖）
+  杯架 = 两侧固定添加
+  座体与侧箱色 = black（代码固定）
+当前导出关节：
+  body_joint | continuous | base -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.28] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.22, 0.29] | limits(SI)=[-0.45, 0] | [-25.783, 0]°
+  legrest_joint | revolute | body -> legrest | axis=[1, 0, 0] | origin(m)=[0, -0.27, 0.17] | limits(SI)=[-1.15, 0] | [-65.89, 0]°
+
+c106_blue_pedestal_recliner
+参考编号：[106]
+配置参数：
+  kind = recliner  [显式设置] 模板类型
+  accent = blue  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  fabric = false  [默认值] 布料凹凸材质
+  holes = 0  [默认值] 靠背圆孔数量
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 570
+  主座体深 (seat_depth_mm) = 550
+  主座体厚 (seat_thickness_mm) = 240
+  主座体中心 Z (seat_center_z_mm) = 470
+  背壳宽度参数 (back_width_parameter_mm) = 570
+  背壳高度参数 (back_height_parameter_mm) = 770
+  底座半径 (base_radius_mm) = 300
+生效／固定特征：
+  pillow = true（函数覆盖）
+  杯架 = 两侧固定添加
+  座体与侧箱色 = black（代码固定）
+当前导出关节：
+  body_joint | continuous | base -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.28] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.22, 0.29] | limits(SI)=[-0.45, 0] | [-25.783, 0]°
+  legrest_joint | revolute | body -> legrest | axis=[1, 0, 0] | origin(m)=[0, -0.27, 0.17] | limits(SI)=[-1.15, 0] | [-65.89, 0]°
+
+c116_red_pedestal_recliner
+参考编号：[116]
+配置参数：
+  kind = recliner  [显式设置] 模板类型
+  accent = red  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  fabric = false  [默认值] 布料凹凸材质
+  holes = 0  [默认值] 靠背圆孔数量
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 570
+  主座体深 (seat_depth_mm) = 550
+  主座体厚 (seat_thickness_mm) = 240
+  主座体中心 Z (seat_center_z_mm) = 470
+  背壳宽度参数 (back_width_parameter_mm) = 570
+  背壳高度参数 (back_height_parameter_mm) = 770
+  底座半径 (base_radius_mm) = 300
+生效／固定特征：
+  pillow = true（函数覆盖）
+  杯架 = 两侧固定添加
+  座体与侧箱色 = black（代码固定）
+当前导出关节：
+  body_joint | continuous | base -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.28] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.22, 0.29] | limits(SI)=[-0.45, 0] | [-25.783, 0]°
+  legrest_joint | revolute | body -> legrest | axis=[1, 0, 0] | origin(m)=[0, -0.27, 0.17] | limits(SI)=[-1.15, 0] | [-65.89, 0]°
+
+c119_black_pedestal_recliner
+参考编号：[118, 119, 126]
+配置参数：
+  kind = recliner  [显式设置] 模板类型
+  accent = charcoal  [显式设置] 主色／装饰色
+  shell = black  [默认值] 外壳／扶手色
+  fabric = false  [默认值] 布料凹凸材质
+  holes = 0  [默认值] 靠背圆孔数量
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 570
+  主座体深 (seat_depth_mm) = 550
+  主座体厚 (seat_thickness_mm) = 240
+  主座体中心 Z (seat_center_z_mm) = 470
+  背壳宽度参数 (back_width_parameter_mm) = 570
+  背壳高度参数 (back_height_parameter_mm) = 770
+  底座半径 (base_radius_mm) = 300
+生效／固定特征：
+  pillow = true（函数覆盖）
+  杯架 = 两侧固定添加
+  座体与侧箱色 = black（代码固定）
+当前导出关节：
+  body_joint | continuous | base -> body | axis=[0, 0, 1] | origin(m)=[0, 0, 0.28] | limits(SI)=[-3.1416, 3.1416] | 连续旋转（无有限角度限位）
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.22, 0.29] | limits(SI)=[-0.45, 0] | [-25.783, 0]°
+  legrest_joint | revolute | body -> legrest | axis=[1, 0, 0] | origin(m)=[0, -0.27, 0.17] | limits(SI)=[-1.15, 0] | [-65.89, 0]°
+================================================================================
+可展开地板沙发椅 | convertible | 2 个
+2 个 case 共用低位座体、靠背和单块延伸垫。差异为配色、fabric 和 tray；头枕由类型自动添加。
+局限：坐垫分叉、填充褶皱、头枕比例简化明显。
+
+c114_grey_convertible_floor
+参考编号：[114]
+配置参数：
+  kind = convertible  [显式设置] 模板类型
+  accent = taupe  [显式设置] 主色／装饰色
+  fabric = true  [显式设置] 布料凹凸材质
+  tray = false  [默认值] 可翻托板
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 600
+  主座体深 (seat_depth_mm) = 560
+  主座体厚 (seat_thickness_mm) = 220
+  主座体中心 Z (seat_center_z_mm) = 120
+  背壳宽度参数 (back_width_parameter_mm) = 580
+  背壳高度参数 (back_height_parameter_mm) = 590
+  延伸垫宽 (extension_width_mm) = 580
+  延伸垫深 (extension_depth_mm) = 460
+  延伸垫厚 (extension_thickness_mm) = 200
+生效／固定特征：
+  头枕 = true（由 convertible 类型固定添加）
+  延伸垫 = 单块固定形状
+  托板 = false
+当前导出关节：
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.24, 0.2] | limits(SI)=[-1.23, 0] | [-70.474, 0]°
+  extension_joint | revolute | body -> extension | axis=[1, 0, 0] | origin(m)=[0, -0.28, 0.25] | limits(SI)=[-3.1416, 0] | [-180, 0]°
+
+c134_black_convertible_floor
+参考编号：[134]
+配置参数：
+  kind = convertible  [显式设置] 模板类型
+  accent = black  [显式设置] 主色／装饰色
+  fabric = false  [默认值] 布料凹凸材质
+  tray = true  [显式设置] 可翻托板
+  holes = 0  [默认值] 靠背圆孔数量
+  pillow = false  [默认值] 头枕及腰枕
+  plush = false  [默认值] 厚软包
+  slim = false  [默认值] 窄高背档／添加头枕
+  graphic = false  [默认值] 通用图案
+  rgb = false  [默认值] 发光装饰线
+  angular = false  [默认值] 固定形状侧翼
+  quilt = false  [默认值] 菱形线纹
+  tuft = false  [默认值] 块状软包／缝线行数
+  chevron = false  [默认值] V 形缝线／中心配色
+当前程序尺寸（mm）：
+  主座体宽 (seat_width_mm) = 600
+  主座体深 (seat_depth_mm) = 560
+  主座体厚 (seat_thickness_mm) = 220
+  主座体中心 Z (seat_center_z_mm) = 120
+  背壳宽度参数 (back_width_parameter_mm) = 580
+  背壳高度参数 (back_height_parameter_mm) = 590
+  延伸垫宽 (extension_width_mm) = 580
+  延伸垫深 (extension_depth_mm) = 460
+  延伸垫厚 (extension_thickness_mm) = 200
+生效／固定特征：
+  头枕 = true（由 convertible 类型固定添加）
+  延伸垫 = 单块固定形状
+  托板 = true
+当前导出关节：
+  back_joint | revolute | body -> back | axis=[1, 0, 0] | origin(m)=[0, 0.24, 0.2] | limits(SI)=[-1.23, 0] | [-70.474, 0]°
+  extension_joint | revolute | body -> extension | axis=[1, 0, 0] | origin(m)=[0, -0.28, 0.25] | limits(SI)=[-3.1416, 0] | [-180, 0]°
+  tray_joint | revolute | body -> tray | axis=[0, 1, 0] | origin(m)=[0.36, 0.02, 0.43] | limits(SI)=[0, 1.5708] | [0, 90]°
+================================================================================
+高立柱摆门式 | gate_tower | 6 个
+6 个 case 全部采用相同高柱、斜屏和玻璃摆门。清单只指定 kind，没有逐 case 的宽高或屏幕位置参数。
+6 款完全同形；高柱、屏幕、端部造型未逐图重建。
+
+g000_tower
+参考编号：[0]
+配置参数：
+  kind = gate_tower  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 280
+  单侧箱长 (case_length_mm) = 1520
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 45
+  门板厚 (barrier_thickness_mm) = 16
+  门板顶 Z (barrier_top_z_mm) = 1300
+生效／固定特征：
+  style = tower
+  机箱色 = brushed stainless
+  顶板色 = brushed stainless
+  读卡区 = 高柱配斜屏
+  门板色 = gate glass
+  门机构 = Z 轴摆门
+  青蓝装饰线 = false
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 0, 1] | origin(m)=[-0.332, 0.12, 0.7] | limits(SI)=[0, 1.5] | [0, 85.944]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 0, 1] | origin(m)=[0.332, 0.12, 0.7] | limits(SI)=[-1.5, 0] | [-85.944, 0]°
+
+g003_tower
+参考编号：[3]
+配置参数：
+  kind = gate_tower  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 280
+  单侧箱长 (case_length_mm) = 1520
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 45
+  门板厚 (barrier_thickness_mm) = 16
+  门板顶 Z (barrier_top_z_mm) = 1300
+生效／固定特征：
+  style = tower
+  机箱色 = brushed stainless
+  顶板色 = brushed stainless
+  读卡区 = 高柱配斜屏
+  门板色 = gate glass
+  门机构 = Z 轴摆门
+  青蓝装饰线 = false
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 0, 1] | origin(m)=[-0.332, 0.12, 0.7] | limits(SI)=[0, 1.5] | [0, 85.944]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 0, 1] | origin(m)=[0.332, 0.12, 0.7] | limits(SI)=[-1.5, 0] | [-85.944, 0]°
+
+g007_tower
+参考编号：[7]
+配置参数：
+  kind = gate_tower  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 280
+  单侧箱长 (case_length_mm) = 1520
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 45
+  门板厚 (barrier_thickness_mm) = 16
+  门板顶 Z (barrier_top_z_mm) = 1300
+生效／固定特征：
+  style = tower
+  机箱色 = brushed stainless
+  顶板色 = brushed stainless
+  读卡区 = 高柱配斜屏
+  门板色 = gate glass
+  门机构 = Z 轴摆门
+  青蓝装饰线 = false
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 0, 1] | origin(m)=[-0.332, 0.12, 0.7] | limits(SI)=[0, 1.5] | [0, 85.944]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 0, 1] | origin(m)=[0.332, 0.12, 0.7] | limits(SI)=[-1.5, 0] | [-85.944, 0]°
+
+g008_tower
+参考编号：[8]
+配置参数：
+  kind = gate_tower  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 280
+  单侧箱长 (case_length_mm) = 1520
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 45
+  门板厚 (barrier_thickness_mm) = 16
+  门板顶 Z (barrier_top_z_mm) = 1300
+生效／固定特征：
+  style = tower
+  机箱色 = brushed stainless
+  顶板色 = brushed stainless
+  读卡区 = 高柱配斜屏
+  门板色 = gate glass
+  门机构 = Z 轴摆门
+  青蓝装饰线 = false
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 0, 1] | origin(m)=[-0.332, 0.12, 0.7] | limits(SI)=[0, 1.5] | [0, 85.944]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 0, 1] | origin(m)=[0.332, 0.12, 0.7] | limits(SI)=[-1.5, 0] | [-85.944, 0]°
+
+g009_tower
+参考编号：[9]
+配置参数：
+  kind = gate_tower  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 280
+  单侧箱长 (case_length_mm) = 1520
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 45
+  门板厚 (barrier_thickness_mm) = 16
+  门板顶 Z (barrier_top_z_mm) = 1300
+生效／固定特征：
+  style = tower
+  机箱色 = brushed stainless
+  顶板色 = brushed stainless
+  读卡区 = 高柱配斜屏
+  门板色 = gate glass
+  门机构 = Z 轴摆门
+  青蓝装饰线 = false
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 0, 1] | origin(m)=[-0.332, 0.12, 0.7] | limits(SI)=[0, 1.5] | [0, 85.944]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 0, 1] | origin(m)=[0.332, 0.12, 0.7] | limits(SI)=[-1.5, 0] | [-85.944, 0]°
+
+g013_tower
+参考编号：[13]
+配置参数：
+  kind = gate_tower  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 280
+  单侧箱长 (case_length_mm) = 1520
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 45
+  门板厚 (barrier_thickness_mm) = 16
+  门板顶 Z (barrier_top_z_mm) = 1300
+生效／固定特征：
+  style = tower
+  机箱色 = brushed stainless
+  顶板色 = brushed stainless
+  读卡区 = 高柱配斜屏
+  门板色 = gate glass
+  门机构 = Z 轴摆门
+  青蓝装饰线 = false
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 0, 1] | origin(m)=[-0.332, 0.12, 0.7] | limits(SI)=[0, 1.5] | [0, 85.944]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 0, 1] | origin(m)=[0.332, 0.12, 0.7] | limits(SI)=[-1.5, 0] | [-85.944, 0]°
+================================================================================
+斜面读卡器翼闸式 | gate_metro | 4 个
+4 个 case 共用黑色斜读卡器、黑顶板与橙色翼板。几何与 gate_orange 相同，材质分支不同。
+审阅：票口、圆弧前端、翼板轮廓均被通用形状替代。
+
+g005_metro
+参考编号：[5]
+配置参数：
+  kind = gate_metro  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 280
+  单侧箱长 (case_length_mm) = 1520
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 45
+  门板厚 (barrier_thickness_mm) = 22
+  门板顶 Z (barrier_top_z_mm) = 940
+生效／固定特征：
+  style = metro
+  机箱色 = brushed stainless
+  顶板色 = black glass
+  读卡区 = charcoal 斜面
+  门板色 = orange
+  门机构 = Y 轴翼板
+  青蓝装饰线 = false
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 1, 0] | origin(m)=[-0.332, 0.08, 0.52] | limits(SI)=[-1.25, 0] | [-71.62, 0]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 1, 0] | origin(m)=[0.332, 0.08, 0.52] | limits(SI)=[0, 1.25] | [0, 71.62]°
+
+g012_metro
+参考编号：[12]
+配置参数：
+  kind = gate_metro  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 280
+  单侧箱长 (case_length_mm) = 1520
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 45
+  门板厚 (barrier_thickness_mm) = 22
+  门板顶 Z (barrier_top_z_mm) = 940
+生效／固定特征：
+  style = metro
+  机箱色 = brushed stainless
+  顶板色 = black glass
+  读卡区 = charcoal 斜面
+  门板色 = orange
+  门机构 = Y 轴翼板
+  青蓝装饰线 = false
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 1, 0] | origin(m)=[-0.332, 0.08, 0.52] | limits(SI)=[-1.25, 0] | [-71.62, 0]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 1, 0] | origin(m)=[0.332, 0.08, 0.52] | limits(SI)=[0, 1.25] | [0, 71.62]°
+
+g019_metro
+参考编号：[19]
+配置参数：
+  kind = gate_metro  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 280
+  单侧箱长 (case_length_mm) = 1520
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 45
+  门板厚 (barrier_thickness_mm) = 22
+  门板顶 Z (barrier_top_z_mm) = 940
+生效／固定特征：
+  style = metro
+  机箱色 = brushed stainless
+  顶板色 = black glass
+  读卡区 = charcoal 斜面
+  门板色 = orange
+  门机构 = Y 轴翼板
+  青蓝装饰线 = false
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 1, 0] | origin(m)=[-0.332, 0.08, 0.52] | limits(SI)=[-1.25, 0] | [-71.62, 0]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 1, 0] | origin(m)=[0.332, 0.08, 0.52] | limits(SI)=[0, 1.25] | [0, 71.62]°
+
+g023_metro
+参考编号：[23]
+配置参数：
+  kind = gate_metro  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 280
+  单侧箱长 (case_length_mm) = 1520
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 45
+  门板厚 (barrier_thickness_mm) = 22
+  门板顶 Z (barrier_top_z_mm) = 940
+生效／固定特征：
+  style = metro
+  机箱色 = brushed stainless
+  顶板色 = black glass
+  读卡区 = charcoal 斜面
+  门板色 = orange
+  门机构 = Y 轴翼板
+  青蓝装饰线 = false
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 1, 0] | origin(m)=[-0.332, 0.08, 0.52] | limits(SI)=[-1.25, 0] | [-71.62, 0]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 1, 0] | origin(m)=[0.332, 0.08, 0.52] | limits(SI)=[0, 1.25] | [0, 71.62]°
+================================================================================
+窄机箱玻璃摆门式 | gate_slim | 2 个
+2 个 case 共用窄机箱、黑顶板和玻璃摆门。圆弧端面等原图差异没有进入配置。
+审阅：原图圆柱／圆弧端面被简化成矩形箱体。
+
+g006_slim
+参考编号：[6]
+配置参数：
+  kind = gate_slim  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 220
+  单侧箱长 (case_length_mm) = 1350
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 80
+  门板厚 (barrier_thickness_mm) = 16
+  门板顶 Z (barrier_top_z_mm) = 1150
+生效／固定特征：
+  style = slim
+  机箱色 = brushed stainless
+  顶板色 = black glass
+  读卡区 = 平顶读卡区
+  门板色 = gate glass
+  门机构 = Z 轴摆门
+  青蓝装饰线 = false
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 0, 1] | origin(m)=[-0.332, 0.12, 0.7] | limits(SI)=[0, 1.5] | [0, 85.944]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 0, 1] | origin(m)=[0.332, 0.12, 0.7] | limits(SI)=[-1.5, 0] | [-85.944, 0]°
+
+g010_slim
+参考编号：[10]
+配置参数：
+  kind = gate_slim  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 220
+  单侧箱长 (case_length_mm) = 1350
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 80
+  门板厚 (barrier_thickness_mm) = 16
+  门板顶 Z (barrier_top_z_mm) = 1150
+生效／固定特征：
+  style = slim
+  机箱色 = brushed stainless
+  顶板色 = black glass
+  读卡区 = 平顶读卡区
+  门板色 = gate glass
+  门机构 = Z 轴摆门
+  青蓝装饰线 = false
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 0, 1] | origin(m)=[-0.332, 0.12, 0.7] | limits(SI)=[0, 1.5] | [0, 85.944]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 0, 1] | origin(m)=[0.332, 0.12, 0.7] | limits(SI)=[-1.5, 0] | [-85.944, 0]°
+================================================================================
+蓝灯黑机箱摆门式 | gate_blue | 1 个
+1 个 case 基于 slim 尺寸添加黑机箱与青蓝装饰线；门机构仍为玻璃摆门。
+审阅：细长直箱变成厚箱；灯带路径与原图不符。
+
+g011_blue
+参考编号：[11]
+配置参数：
+  kind = gate_blue  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 220
+  单侧箱长 (case_length_mm) = 1350
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 80
+  门板厚 (barrier_thickness_mm) = 16
+  门板顶 Z (barrier_top_z_mm) = 1150
+生效／固定特征：
+  style = blue
+  机箱色 = charcoal
+  顶板色 = black glass
+  读卡区 = 平顶读卡区
+  门板色 = gate glass
+  门机构 = Z 轴摆门
+  青蓝装饰线 = true
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 0, 1] | origin(m)=[-0.332, 0.12, 0.7] | limits(SI)=[0, 1.5] | [0, 85.944]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 0, 1] | origin(m)=[0.332, 0.12, 0.7] | limits(SI)=[-1.5, 0] | [-85.944, 0]°
+================================================================================
+平顶红翼闸式 | gate_flap | 1 个
+1 个 case 使用平顶读卡区与红色翼板。箱体、传感器布局和门板多边形均为固定程序值。
+审阅：圆弧前端、顶面开孔、传感器分布未还原。
+
+g014_flap
+参考编号：[14]
+配置参数：
+  kind = gate_flap  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 280
+  单侧箱长 (case_length_mm) = 1520
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 45
+  门板厚 (barrier_thickness_mm) = 22
+  门板顶 Z (barrier_top_z_mm) = 940
+生效／固定特征：
+  style = flap
+  机箱色 = brushed stainless
+  顶板色 = brushed stainless
+  读卡区 = 平顶读卡区
+  门板色 = red
+  门机构 = Y 轴翼板
+  青蓝装饰线 = false
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 1, 0] | origin(m)=[-0.332, 0.08, 0.52] | limits(SI)=[-1.25, 0] | [-71.62, 0]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 1, 0] | origin(m)=[0.332, 0.08, 0.52] | limits(SI)=[0, 1.25] | [0, 71.62]°
+================================================================================
+橙色读卡器翼闸式 | gate_orange | 1 个
+1 个 case 沿用 metro 的箱体与翼板，读卡器改橙色、顶板改银色；不是独立的外壳轮廓。
+审阅：原图窄长橙色面板被替换为凸出的通用斜块。
+
+g022_orange
+参考编号：[22]
+配置参数：
+  kind = gate_orange  [显式设置] 模板类型
+当前程序尺寸（mm）：
+  单侧箱宽 (case_width_mm) = 280
+  单侧箱长 (case_length_mm) = 1520
+  单侧箱高 (case_height_mm) = 1020
+  两箱内侧净距 (case_clearance_mm) = 680
+  箱体倒角参数 (case_bevel_mm) = 45
+  门板厚 (barrier_thickness_mm) = 22
+  门板顶 Z (barrier_top_z_mm) = 940
+生效／固定特征：
+  style = orange
+  机箱色 = brushed stainless
+  顶板色 = brushed stainless
+  读卡区 = orange 斜面
+  门板色 = orange
+  门机构 = Y 轴翼板
+  青蓝装饰线 = false
+  门板与箱体 = body 固定机箱；barrier_left / barrier_right 可动
+当前导出关节：
+  barrier_left_joint | revolute | body -> barrier_left | axis=[0, 1, 0] | origin(m)=[-0.332, 0.08, 0.52] | limits(SI)=[-1.25, 0] | [-71.62, 0]°
+  barrier_right_joint | revolute | body -> barrier_right | axis=[0, 1, 0] | origin(m)=[0.332, 0.08, 0.52] | limits(SI)=[0, 1.25] | [0, 71.62]°
+
+颜色表（线性 RGBA）：
+{
+  "black": [
+    0.018,
+    0.021,
+    0.027,
+    1
+  ],
+  "charcoal": [
+    0.055,
+    0.063,
+    0.075,
+    1
+  ],
+  "grey": [
+    0.3,
+    0.32,
+    0.35,
+    1
+  ],
+  "taupe": [
+    0.37,
+    0.32,
+    0.27,
+    1
+  ],
+  "cream": [
+    0.78,
+    0.72,
+    0.58,
+    1
+  ],
+  "white": [
+    0.85,
+    0.87,
+    0.87,
+    1
+  ],
+  "sand": [
+    0.65,
+    0.49,
+    0.23,
+    1
+  ],
+  "blush": [
+    0.56,
+    0.4,
+    0.37,
+    1
+  ],
+  "olive": [
+    0.26,
+    0.34,
+    0.12,
+    1
+  ],
+  "forest": [
+    0.06,
+    0.2,
+    0.11,
+    1
+  ],
+  "navy": [
+    0.025,
+    0.055,
+    0.14,
+    1
+  ],
+  "blue": [
+    0.025,
+    0.12,
+    0.64,
+    1
+  ],
+  "red": [
+    0.66,
+    0.025,
+    0.018,
+    1
+  ],
+  "orange": [
+    0.93,
+    0.19,
+    0.015,
+    1
+  ],
+  "cyan": [
+    0.02,
+    0.52,
+    0.72,
+    1
+  ],
+  "silver": [
+    0.55,
+    0.6,
+    0.64,
+    1
+  ],
+  "brass": [
+    0.52,
+    0.43,
+    0.2,
+    1
+  ],
+  "wood": [
+    0.24,
+    0.09,
+    0.025,
+    1
+  ],
+  "rainbow": [
+    0.28,
+    0.06,
+    0.64,
+    1
+  ]
+}

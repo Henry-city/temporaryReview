@@ -1,0 +1,114 @@
+[
+  {
+    "kind": "office",
+    "cases": 9,
+    "image_size": [
+      3000,
+      5176
+    ]
+  },
+  {
+    "kind": "racing",
+    "cases": 27,
+    "image_size": [
+      3000,
+      14662
+    ]
+  },
+  {
+    "kind": "conference",
+    "cases": 2,
+    "image_size": [
+      3000,
+      1409
+    ]
+  },
+  {
+    "kind": "folding",
+    "cases": 3,
+    "image_size": [
+      3000,
+      1780
+    ]
+  },
+  {
+    "kind": "floor",
+    "cases": 7,
+    "image_size": [
+      3000,
+      4122
+    ]
+  },
+  {
+    "kind": "rocker",
+    "cases": 3,
+    "image_size": [
+      3000,
+      2014
+    ]
+  },
+  {
+    "kind": "recliner",
+    "cases": 4,
+    "image_size": [
+      3000,
+      2385
+    ]
+  },
+  {
+    "kind": "convertible",
+    "cases": 2,
+    "image_size": [
+      3000,
+      1409
+    ]
+  },
+  {
+    "kind": "gate_tower",
+    "cases": 6,
+    "image_size": [
+      3000,
+      3343
+    ]
+  },
+  {
+    "kind": "gate_metro",
+    "cases": 4,
+    "image_size": [
+      3000,
+      2373
+    ]
+  },
+  {
+    "kind": "gate_slim",
+    "cases": 2,
+    "image_size": [
+      3000,
+      1403
+    ]
+  },
+  {
+    "kind": "gate_blue",
+    "cases": 1,
+    "image_size": [
+      3000,
+      918
+    ]
+  },
+  {
+    "kind": "gate_flap",
+    "cases": 1,
+    "image_size": [
+      3000,
+      918
+    ]
+  },
+  {
+    "kind": "gate_orange",
+    "cases": 1,
+    "image_size": [
+      3000,
+      918
+    ]
+  }
+]
